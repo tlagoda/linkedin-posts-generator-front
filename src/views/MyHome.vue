@@ -1,7 +1,7 @@
 <template>
   <h1>GPT | LinkedIn</h1>
   <div class="main-div">
-    <PostForm />
+    <!-- <PostForm /> -->
     <div class="post-div">
       <LinkedInPost />
       <div class="btn-div">
