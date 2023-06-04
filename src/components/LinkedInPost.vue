@@ -18,7 +18,7 @@ const temp= getTemp()
 .post {
   width: 24rem;
   height: 25rem;
-  border: 1px solid black;
+  border: 3px solid black;
   padding: 0.3rem 0.8rem;
   border-radius: 1rem;
   position: relative;

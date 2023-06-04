@@ -16,6 +16,7 @@ import LinkedInPost from '@/components/LinkedInPost.vue'
 <style scoped>
 h1 {
   text-align: center;
+  margin: 1rem 0 2rem 0;
 }
 
 .post-div {
@@ -40,6 +41,16 @@ button {
   cursor: pointer;
   font-size: 1rem;
   padding: 0.2rem 0.8rem;
+}
+
+.generate-btn {
+  color: crimson;
+  background-color: transparent;
+}
+
+.share-btn {
+  color: limegreen;
+  background-color: transparent;
 }
 
 .generate-btn:hover {
