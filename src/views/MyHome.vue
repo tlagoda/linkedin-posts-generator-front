@@ -1,10 +1,10 @@
 <template>
-  <h1>LINKEDIN / GPT</h1>
+  <h1>GPT | LinkedIn</h1>
   <div class="post-div">
     <LinkedInPost />
     <div class="btn-div">
-      <button>Generate a post</button>
-      <button>Share on LinkedIn</button>
+      <button class="generate-btn">Generate a post</button>
+      <button class="share-btn">Share on LinkedIn</button>
     </div>
   </div>
 </template>
@@ -40,5 +40,15 @@ button {
   cursor: pointer;
   font-size: 1rem;
   padding: 0.2rem 0.8rem;
+}
+
+.generate-btn:hover {
+  background-color: crimson;
+  color: white;
+}
+
+.share-btn:hover {
+  background-color: limegreen;
+  color: white;
 }
 </style>

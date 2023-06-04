@@ -22,7 +22,17 @@ const loginToLinkedIn = ref(() => {
 .connect-btn {
   position: absolute;
   top: 1rem;
-  right: 1rem;
+  right: 2rem;
   cursor: pointer;
+  font-size: 1.5rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 1rem;
+  color: cornflowerblue;
+  background-color: transparent;
+}
+
+.connect-btn:hover {
+  background-color: cornflowerblue;
+  color: white;
 }
 </style>
