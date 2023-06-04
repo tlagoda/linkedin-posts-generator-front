@@ -1,6 +1,6 @@
 <template>
   <router-view></router-view>
-  <Connect-Button />
+  <ConnectButton />
 </template>
 
 <script setup lang="ts">

@@ -1,16 +1,20 @@
 <template>
   <h1>GPT | LinkedIn</h1>
-  <div class="post-div">
-    <LinkedInPost />
-    <div class="btn-div">
-      <button class="generate-btn">Generate a post</button>
-      <button class="share-btn">Share on LinkedIn</button>
+  <div class="main-div">
+    <PostForm />
+    <div class="post-div">
+      <LinkedInPost />
+      <div class="btn-div">
+        <button class="generate-btn">Generate a post</button>
+        <button class="share-btn">Share on LinkedIn</button>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import LinkedInPost from '@/components/LinkedInPost.vue'
+import PostForm from '@/components/PostForm.vue'
 </script>
 
 <style scoped>
@@ -19,10 +23,16 @@ h1 {
   margin: 1rem 0 2rem 0;
 }
 
+.main-div {
+  margin-top: 5rem;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
 .post-div {
-  width: 50vw;
   min-width: 20rem;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
