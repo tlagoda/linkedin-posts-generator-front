@@ -6,7 +6,7 @@
 </template>
 
 <script setup lang="ts">
-import LinkedInPost from '@/components/LinkedInPost.vue';
+import LinkedInPost from '@/components/LinkedInPost.vue'
 </script>
 
 <style scoped></style>
