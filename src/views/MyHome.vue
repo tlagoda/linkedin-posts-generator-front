@@ -3,10 +3,16 @@
   <div class="main-div">
     <!-- <PostForm /> -->
     <div class="post-div">
-      <LinkedInPost />
+      <LinkedInPost :post="generatedPost" />
       <div class="btn-div">
-        <button class="generate-btn">Generate a post</button>
-        <button class="share-btn">Share on LinkedIn</button>
+        <button
+          class="generate-btn"
+          @click="generatePost"
+          :disabled="generatedPost === 'LOADING...'"
+        >
+          Generate a post
+        </button>
+        <button class="share-btn" @click="shareOnLinkedIn">Share on LinkedIn</button>
       </div>
     </div>
   </div>
@@ -14,7 +20,30 @@
 
 <script setup lang="ts">
 import LinkedInPost from '@/components/LinkedInPost.vue'
-import PostForm from '@/components/PostForm.vue'
+// import PostForm from '@/components/PostForm.vue'
+import { PostService } from '@/services/PostService'
+import { ref } from 'vue'
+
+const generatedPost = ref('')
+
+const generatePost = async () => {
+  try {
+    generatedPost.value = 'LOADING...'
+    const post = await PostService.getPost()
+    generatedPost.value = post
+  } catch (error) {
+    console.error('Error generating post:', error)
+  }
+}
+
+const shareOnLinkedIn = async () => {
+  try {
+    const response = await PostService.sharePost(generatedPost.value)
+    console.log(response)
+  } catch (error) {
+    console.error('Error while sharing post:', error)
+  }
+}
 </script>
 
 <style scoped>
