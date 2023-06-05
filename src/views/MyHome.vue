@@ -33,6 +33,9 @@ const generatePost = async () => {
     const post = await PostService.getPost()
     generatedPost.value = post
   } catch (error) {
+    generatedPost.value = 'An error occured.'
+    const $toast = useToast()
+    let instance = $toast.error('An error occured.')
     console.error('Error generating post:', error)
   }
 }
