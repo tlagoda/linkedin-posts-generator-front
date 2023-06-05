@@ -1,7 +1,7 @@
 <template>
   <h1>GPT | LinkedIn</h1>
   <div class="main-div">
-    <!-- <PostForm /> -->
+    <PostForm />
     <div class="post-div">
       <LinkedInPost :post="generatedPost" />
       <div class="btn-div">
@@ -20,9 +20,10 @@
 
 <script setup lang="ts">
 import LinkedInPost from '@/components/LinkedInPost.vue'
-// import PostForm from '@/components/PostForm.vue'
+import PostForm from '@/components/PostForm.vue'
 import { PostService } from '@/services/PostService'
 import { ref } from 'vue'
+import { useToast } from 'vue-toast-notification'
 
 const generatedPost = ref('')
 
@@ -37,10 +38,21 @@ const generatePost = async () => {
 }
 
 const shareOnLinkedIn = async () => {
+  if (generatedPost.value === '') {
+    return
+  }
   try {
     const response = await PostService.sharePost(generatedPost.value)
-    console.log(response)
+    if (response.status === 201) {
+      const $toast = useToast()
+      let instance = $toast.success('Post has been shared!')
+    } else {
+      const $toast = useToast()
+      let instance = $toast.error('An error occured.')
+    }
   } catch (error) {
+    const $toast = useToast()
+    let instance = $toast.error('An error occured.')
     console.error('Error while sharing post:', error)
   }
 }
