@@ -30,7 +30,7 @@ const generatedPost = ref('')
 const generatePost = async () => {
   try {
     generatedPost.value = 'LOADING...'
-    const post = await PostService.getPost()
+    const post = await PostService.getPost('CUSTOMPROMPT') // pass custom prompt
     generatedPost.value = post
   } catch (error) {
     generatedPost.value = 'An error occured.'

@@ -1,42 +1,23 @@
 <template>
-  <form>
-    <div class="prompt-div">
-      <label>Your prompt:</label>
-      <textarea maxlength="1000">ENTER YOUR PROMPT HERE</textarea>
-    </div>
-    <div class="token-temp-div">
-      <div class="token-div">
-        <label>MAX TOKEN</label> <input type="number" min="10" max="2000" />
-      </div>
-      <div class="temp-div">
-        <label>TEMPERATURE</label> <input type="number" min="0" max="1" step="0.05" />
-      </div>
-    </div>
-  </form>
+  <textarea
+    maxlength="5000"
+    placeholder="Enter your prompt here!"
+  ></textarea>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+
+</script>
 
 <style scoped>
-form {
-  width: 30rem;
-}
-
-.prompt-div {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-
 textarea {
-  width: 20rem;
-  height: 20rem;
+  width: 24rem;
+  height: 25rem;
+  border: 3px solid black;
+  padding: 0.3rem 0.8rem;
+  border-radius: 1rem;
+  position: relative;
   resize: none;
-}
-
-.token-temp-div {
-    display: flex;
-    justify-content: space-around;
+  margin-bottom: 1rem;
 }
 </style>
