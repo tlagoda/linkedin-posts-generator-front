@@ -1,7 +1,7 @@
 <template>
   <h1>GPT | LinkedIn</h1>
   <div class="main-div">
-    <PostForm />
+    <PostForm :customPrompt="customPrompt" @updateCustomPrompt="updateCustomPrompt" />
     <div class="post-div">
       <LinkedInPost :post="generatedPost" />
       <div class="btn-div">
@@ -25,12 +25,19 @@ import { PostService } from '@/services/PostService'
 import { ref } from 'vue'
 import { useToast } from 'vue-toast-notification'
 
+const customPrompt = ref('')
+
+const updateCustomPrompt = (value: string) => {
+  customPrompt.value = value
+}
+
 const generatedPost = ref('')
 
 const generatePost = async () => {
+  console.log(customPrompt)
   try {
     generatedPost.value = 'LOADING...'
-    const post = await PostService.getPost('CUSTOMPROMPT') // pass custom prompt
+    const post = await PostService.getPost(customPrompt.value) // pass custom prompt
     generatedPost.value = post
   } catch (error) {
     generatedPost.value = 'An error occured.'

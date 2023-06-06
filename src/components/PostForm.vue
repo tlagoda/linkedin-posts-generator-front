@@ -2,11 +2,25 @@
   <textarea
     maxlength="5000"
     placeholder="Enter your prompt here!"
+    v-model="inputValue"
+    @input="emitCustomPrompt"
   ></textarea>
 </template>
 
 <script setup lang="ts">
+import {  ref } from 'vue'
 
+const props = defineProps({
+  customPrompt: String
+})
+
+const emit = defineEmits(['updateCustomPrompt'])
+
+const inputValue = ref(props.customPrompt)
+
+const emitCustomPrompt = () => {
+  emit('updateCustomPrompt', inputValue.value)
+}
 </script>
 
 <style scoped>
